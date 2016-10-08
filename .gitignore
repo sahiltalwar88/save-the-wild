@@ -1,3 +1,6 @@
+# Stupid macs
+.DS_Store
+
 # This is a React Native application, so we need node style ignores too
 node_modules
 
