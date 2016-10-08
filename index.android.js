@@ -1,29 +1,38 @@
-/**
-* Sample React Native App
-* https://github.com/facebook/react-native
-* @flow
-*/
-
 import React, { Component } from 'react'
-import { AppRegistry, StyleSheet, Text, View } from 'react-native'
-import ExampleComponent from './components/example-component'
+import { AppRegistry, Navigator, StyleSheet, Text, View } from 'react-native'
+import CrimePicker from './components/crime-picker'
 
 class SaveTheWild extends Component {
   render () {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-        Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-        To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-        Double tap R on your keyboard to reload,{'\n'}
-        Shake or press menu button for dev menu
-        </Text>
-        <ExampleComponent exampleUrl='https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'/>
-      </View>
+      <Navigator
+        style={{width: 300}}
+        initialRoute={ { title: 'Crime Picker', index: 0 } }
+        renderScene={ (route, navigator) =>
+          <CrimePicker
+            title={ route.title }
+
+            onForward={ () => {
+              var nextIndex = route.index + 1;
+              if(route.index === 1) {
+                navigator.push({
+                  title: 'Map Location'
+                });
+              } else if(route.index === 2) {
+                navigator.push({
+                  title: 'Details of Crime'
+                });
+              }
+            }}
+
+            onBack={ () => {
+              if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
+        }
+      />
     )
   }
 }
