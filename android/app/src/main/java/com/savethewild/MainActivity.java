@@ -1,9 +1,6 @@
 package com.savethewild;
 
 import com.facebook.react.ReactActivity;
-import com.mapbox.reactnativemapboxgl.ReactNativeMapboxGLPackage;
-import java.util.List;
-import java.util.Arrays;
 
 public class MainActivity extends ReactActivity {
 
@@ -14,12 +11,5 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "SaveTheWild";
-    }
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-        new MainReactPackage(),
-        new ReactNativeMapboxGLPackage());  // <-- Register package here
     }
 }
