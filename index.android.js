@@ -3,71 +3,23 @@ import { AppRegistry, Navigator, StyleSheet, Text, View } from 'react-native'
 import CrimePicker from './components/crime-picker'
 
 class SaveTheWild extends Component {
+  renderScene (route, navigator) {
+    switch (route.id) {
+      case 'first':
+        return <CrimePicker navigator={navigator} title='Choose a type of crime' />
+      case 'second':
+        return
+        // return <Second navigator={navigator} title='second' />
+    }
+  }
+
   render () {
     return (
       <Navigator
-        style={{width: 300}}
-        initialRoute={ { title: 'Crime Picker', index: 0 } }
-        renderScene={ (route, navigator) =>
-          <CrimePicker
-            title={ route.title }
-
-            onForward={ () => {
-              var nextIndex = route.index + 1;
-              if(route.index === 1) {
-                navigator.push({
-                  title: 'Map Location'
-                });
-              } else if(route.index === 2) {
-                navigator.push({
-                  title: 'Details of Crime'
-                });
-              }
-            }}
-
-            onBack={ () => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
-        }
-      />
-
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-        Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-        To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-        Double tap R on your keyboard to reload,{'\n'}
-        Shake or press menu button for dev menu
-        </Text>
-        <CrimePicker />
-      </View>
-    )
+        initialRoute={ { id: 'first' } }
+        renderScene={ this.renderScene }/>
+    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  }
-})
 
 AppRegistry.registerComponent('SaveTheWild', () => SaveTheWild)
