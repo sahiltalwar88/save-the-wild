@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { AppRegistry, Modal } from 'react-native'
+import { Image } from 'react-native'
 
 class ExampleComponent extends Component {
   render () {
+    const pic = { uri: this.props.exampleUrl }
+
     return (
-      <Modal>this.props.exampleText</Modal>
+      <Image source={pic} style={{width: 193, height: 110}}/>
     )
   }
 }
 
-AppRegistry.registerComponent('ExampleComponent', () => ExampleComponent)
 export default ExampleComponent
