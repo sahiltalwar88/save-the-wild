@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Picker } from 'react-native'
 
 class CrimePicker extends Component {
-  render() {
+  render () {
     state = {
       selectedCrime: null
     }
@@ -10,7 +10,7 @@ class CrimePicker extends Component {
     return (
       <Picker
         style={{width: 300}}
-        selectedValue={ state.selectedCrime }
+        selectedValue='Please select a type of activity to report'
         onValueChange={ (crimeType) => this.setState({ selectedCrime: crimeType }) }>
         <Picker.Item label='Poaching and Trafficking' value='poaching' />
         <Picker.Item label='Logging and Plants' value='logging' />
