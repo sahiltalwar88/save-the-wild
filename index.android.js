@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react'
 import { AppRegistry, StyleSheet, Text, View } from 'react-native'
-import ExampleComponent from './components/example-component'
+import CrimePicker from './components/crime-picker'
 
 class SaveTheWild extends Component {
   render () {
@@ -22,7 +22,7 @@ class SaveTheWild extends Component {
         Double tap R on your keyboard to reload,{'\n'}
         Shake or press menu button for dev menu
         </Text>
-        <ExampleComponent exampleUrl='https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'/>
+        <CrimePicker />
       </View>
     )
   }
