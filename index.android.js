@@ -5,27 +5,24 @@
 */
 
 import React, { Component } from 'react'
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { AppRegistry, StyleSheet, Text, View } from 'react-native'
+import ExampleComponent from './components'
 
 class SaveTheWild extends Component {
   render () {
     return (
       <View style={styles.container}>
-      <Text style={styles.welcome}>
-      Welcome to React Native!
-      </Text>
-      <Text style={styles.instructions}>
-      To get started, edit index.android.js
-      </Text>
-      <Text style={styles.instructions}>
-      Double tap R on your keyboard to reload,{'\n'}
-      Shake or press menu button for dev menu
-      </Text>
+        <Text style={styles.welcome}>
+        Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+        To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+        Double tap R on your keyboard to reload,{'\n'}
+        Shake or press menu button for dev menu
+        </Text>
+        <ExampleComponent exampleText='This is an example of a custom component!'/>
       </View>
     )
   }
