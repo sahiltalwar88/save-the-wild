@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { AppRegistry, Navigator, StyleSheet, Text, View } from 'react-native'
+import { AppRegistry, Navigator } from 'react-native'
 import CrimePicker from './components/crime-picker'
+// import Map from './components/map'
 
 class SaveTheWild extends Component {
   renderScene (route, navigator) {
@@ -18,7 +19,7 @@ class SaveTheWild extends Component {
       <Navigator
         initialRoute={ { id: 'first' } }
         renderScene={ this.renderScene }/>
-    );
+    )
   }
 }
 
