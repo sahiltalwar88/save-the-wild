@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, Navigator, View, StyleSheet } from 'react-native'
+import { AppRegistry, Navigator, StyleSheet, View } from 'react-native'
 import Button from 'react-native-button'
 import CrimePicker from './components/crime-picker'
 import Map from './components/map'
@@ -28,6 +28,10 @@ class SaveTheWild extends Component {
         title: 'Show us the scene of the crime',
         index: 1,
         component: <Map wtf={ this.state.selectedCrime }/>
+      },
+      {
+        title: 'Details of crime',
+        index: 2
       }
     ]
 
