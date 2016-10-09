@@ -3,6 +3,10 @@ import Button from 'react-native-button'
 import { Picker, View } from 'react-native'
 
 class CrimePicker extends Component {
+  continue () {
+    // this.props.navigator.push({ id: 'second' })
+  }
+
   render () {
     state = {
       selectedCrime: null
@@ -20,7 +24,7 @@ class CrimePicker extends Component {
         </Picker>
         <Button
           style={{width: 100, height: 50, backgroundColor: 'green'}}
-          onPress={ this.props.navigator.push({ id: 'second' }) }>
+          onPress={ this.continue }>
           Continue
         </Button>
       </View>

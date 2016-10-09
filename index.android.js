@@ -8,8 +8,8 @@ class SaveTheWild extends Component {
     switch (route.id) {
       case 'first':
         return <CrimePicker navigator={navigator} title='Choose a type of crime' />
-      // case 'second':
-      //   return <Map navigator={navigator} title='Show us the scene of the crime' />
+      case 'second':
+        return <Map navigator={navigator} title='Show us the scene of the crime' />
       // case 'third':
       //   return <CrimeReport navigator={navigator} title='Finalize and submit crime report' />
     }
