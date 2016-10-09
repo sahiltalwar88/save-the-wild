@@ -56,7 +56,7 @@ class SaveTheWild extends Component {
         </View>
       }
     />
-  )
+    )
   }
 }
 
