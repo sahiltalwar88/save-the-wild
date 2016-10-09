@@ -33,28 +33,14 @@ class SaveTheWild extends Component {
 
     return (
     <Navigator
-<<<<<<< HEAD
-      initialRoute={routes[0]}
-      renderScene={(route, navigator) =>
-        <View style={styles.container}>
-          {route.component}
-          <Button
-            style={styles.continueButton}
-            onPress={() => {
-              const nextPage = route.index++
-              navigator.push(routes[nextPage])
-            }}>
-            Continue
-          </Button>
-=======
       initialRoute={ routes[0] }
       renderScene={ (route, navigator) =>
-        <View>
+        <View style={styles.container}>
           {route.component}
           {
             this.state.selectedCrime
               ? <Button
-                  style={{width: 200, height: 200, backgroundColor: 'black'}}
+                  style={styles.continueButton}
                   onPress={() => {
                     const nextPage = route.index++
                     navigator.push(routes[nextPage])
@@ -63,7 +49,6 @@ class SaveTheWild extends Component {
                 </Button>
               : null
           }
->>>>>>> 448dada0f91aa72bafb70c77b49ae0c299f48dd7
         </View>
       }
     />
