@@ -4,7 +4,9 @@ import { Text } from 'react-native'
 class Map extends Component {
   render () {
     return (
-      <Text />
+      <Text>
+        {this.props.wtf}
+      </Text>
     )
   }
 }

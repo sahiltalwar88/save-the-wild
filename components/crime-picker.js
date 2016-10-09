@@ -1,32 +1,18 @@
 import React, { Component } from 'react'
-import Button from 'react-native-button'
 import { Picker, View } from 'react-native'
 
 class CrimePicker extends Component {
-  continue () {
-    // this.props.navigator.push({ id: 'second' })
-  }
-
   render () {
-    state = {
-      selectedCrime: null
-    }
-
     return (
-      <View>
+      <View ref={component => this._root = component}>
         <Picker
-          style={{width: 300}}
-          selectedValue='Please select a type of activity to report'
-          onValueChange={ (crimeType) => this.setState({ selectedCrime: crimeType }) }>
+          selectedValue={ this.props.selectedCrime }
+          // onValueChange={ (selected) => this.props.onChange(selected) }>
+          style={{width: 300}}>
           <Picker.Item label='Poaching and Trafficking' value='poaching' />
           <Picker.Item label='Logging and Plants' value='logging' />
           <Picker.Item label='Fishing (IUUF)' value='fishing' />
         </Picker>
-        <Button
-          style={{width: 100, height: 50, backgroundColor: 'green'}}
-          onPress={ this.continue }>
-          Continue
-        </Button>
       </View>
     )
   }

@@ -1,26 +1,54 @@
 import React, { Component } from 'react'
-import { AppRegistry, Navigator } from 'react-native'
+import { AppRegistry, Navigator, View } from 'react-native'
+import Button from 'react-native-button'
 import CrimePicker from './components/crime-picker'
-// import Map from './components/map'
+import Map from './components/map'
 
 class SaveTheWild extends Component {
-  renderScene (route, navigator) {
-    switch (route.id) {
-      case 'first':
-        return <CrimePicker navigator={navigator} title='Choose a type of crime' />
-      case 'second':
-        return <Map navigator={navigator} title='Show us the scene of the crime' />
-      // case 'third':
-      //   return <CrimeReport navigator={navigator} title='Finalize and submit crime report' />
-    }
+  constructor (props) {
+    super(props)
+    this.state = { selectedCrime: null }
+  }
+
+  setSelectedCrime = (selectedCrime) => {
+    this.setState({ selectedCrime: selectedCrime })
   }
 
   render () {
+    const routes = [
+      {
+        title: 'Choose a type of crime',
+        index: 0,
+        component: <CrimePicker
+                      onChange={ this.setSelectedCrime }
+                      selectedCrime={ this.state.selectedCrime } />
+      },
+      {
+        title: 'Show us the scene of the crime',
+        index: 1,
+        component: <Map wtf={ this.state.selectedCrime }/>
+      }
+    ]
+
     return (
-      <Navigator
-        initialRoute={ { id: 'first' } }
-        renderScene={ this.renderScene }/>
-    )
+    <Navigator
+      initialRoute={routes[0]}
+      renderScene={(route, navigator) =>
+        <View>
+          {route.component}
+          <Button
+            style={{width: 200, height: 200, backgroundColor: 'black'}}
+            onPress={() => {
+              const nextPage = route.index++
+              navigator.push(routes[nextPage])
+            }}>
+            Continue
+          </Button>
+        </View>
+      }
+      style={{padding: 100}}
+    />
+  )
   }
 }
 
