@@ -4,10 +4,14 @@ import { Picker, StyleSheet, View } from 'react-native'
 class CrimePicker extends Component {
   render () {
     return (
-      <View style={styles.selectCrime} ref={component => this._root = component}>
+      <View style={styles.selectCrime} ref={ component => this._root = component }>
         <Picker
           style={styles.selectedCrimePicker}
-          selectedValue={ this.props.selectedCrime }>
+          selectedValue={ this.props.selectedCrime }
+          onValueChange={ (selected) => {
+            this.props.onChange(selected)
+          }}>
+          <Picker.Item label='Please select a type of crime' value='null' />
           <Picker.Item label='Poaching and Trafficking' value='poaching' />
           <Picker.Item label='Logging and Plants' value='logging' />
           <Picker.Item label='Fishing (IUUF)' value='fishing' />

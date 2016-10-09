@@ -8,16 +8,17 @@ class SaveTheWild extends Component {
   constructor (props) {
     super(props)
     this.state = { selectedCrime: null }
+    this.setSelectedCrime = this.setSelectedCrime.bind(this)
   }
 
-  setSelectedCrime = (selectedCrime) => {
+  setSelectedCrime (selectedCrime) {
     this.setState({ selectedCrime: selectedCrime })
   }
 
   render () {
     const routes = [
       {
-        title: 'Choose a type of crime',
+        title: 'Please select a type of crime',
         index: 0,
         component: <CrimePicker
                       onChange={ this.setSelectedCrime }
@@ -32,6 +33,7 @@ class SaveTheWild extends Component {
 
     return (
     <Navigator
+<<<<<<< HEAD
       initialRoute={routes[0]}
       renderScene={(route, navigator) =>
         <View style={styles.container}>
@@ -44,6 +46,24 @@ class SaveTheWild extends Component {
             }}>
             Continue
           </Button>
+=======
+      initialRoute={ routes[0] }
+      renderScene={ (route, navigator) =>
+        <View>
+          {route.component}
+          {
+            this.state.selectedCrime
+              ? <Button
+                  style={{width: 200, height: 200, backgroundColor: 'black'}}
+                  onPress={() => {
+                    const nextPage = route.index++
+                    navigator.push(routes[nextPage])
+                  }}>
+                  Continue
+                </Button>
+              : null
+          }
+>>>>>>> 448dada0f91aa72bafb70c77b49ae0c299f48dd7
         </View>
       }
     />
