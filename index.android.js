@@ -10,7 +10,7 @@ class SaveTheWild extends Component {
     this.state = { selectedCrime: null }
   }
 
-  setSelectedCrime = (selectedCrime) => {
+  setSelectedCrime (selectedCrime) {
     this.setState({ selectedCrime: selectedCrime })
   }
 

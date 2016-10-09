@@ -7,7 +7,7 @@ class CrimePicker extends Component {
       <View ref={component => this._root = component}>
         <Picker
           selectedValue={ this.props.selectedCrime }
-          // onValueChange={ (selected) => this.props.onChange(selected) }>
+          onValueChange={ (selected) => this.props.onChange(selected) }
           style={{width: 300}}>
           <Picker.Item label='Poaching and Trafficking' value='poaching' />
           <Picker.Item label='Logging and Plants' value='logging' />
